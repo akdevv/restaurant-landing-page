@@ -1,2 +1,3 @@
-# restaurant-landing-page
+# Restaurant Landing Page
+
 React Restaurant Landing Page Website
