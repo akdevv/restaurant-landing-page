@@ -1,5 +1,4 @@
 import "./App.css";
-import { Navbar } from "./components";
 import {
 	AboutUs,
 	Chef,
@@ -11,6 +10,7 @@ import {
 	Laurels,
 	Menu,
 } from "./container";
+import { Navbar } from "./components";
 
 function App() {
 	return (
