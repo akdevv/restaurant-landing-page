@@ -1,7 +1,45 @@
 import "./Intro.css";
+import { useRef, useState } from "react";
+import { meal } from "../../constants";
+import { BsPlayFill, BsPauseFill } from "react-icons/bs";
 
 function Intro() {
-	return <div>Intro</div>;
+	const vidRef = useRef();
+	const [playVideo, setPlayVideo] = useState(false);
+
+	const handleVideoPlayback = () => {
+		setPlayVideo((prevPlayVideo) => !prevPlayVideo);
+		if (playVideo) {
+			vidRef.current.pause();
+		} else {
+			vidRef.current.play();
+		}
+	};
+
+	return (
+		<div className="app__video">
+			<video
+				src={meal}
+				ref={vidRef}
+				type="video/mp4"
+				loop
+				muted
+				controls={false}
+			/>
+			<div className="app__video-overlay flex__center">
+				<div
+					className="app__video-overlay_circle flex__center"
+					onClick={handleVideoPlayback}
+				>
+					{playVideo ? (
+						<BsPauseFill color="#FFF" fontSize={30} />
+					) : (
+						<BsPlayFill color="#FFF" fontSize={30} />
+					)}
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default Intro;
